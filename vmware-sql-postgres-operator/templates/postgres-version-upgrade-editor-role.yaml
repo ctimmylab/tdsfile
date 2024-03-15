@@ -1,0 +1,24 @@
+# permissions for end users to edit postgresversionupgrades.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: postgresversionupgrade-editor-role
+rules:
+- apiGroups:
+  - sql.tanzu.vmware.com
+  resources:
+  - postgresversionupgrades
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - sql.tanzu.vmware.com
+  resources:
+  - postgresversionupgrades/status
+  verbs:
+  - get
